@@ -1,11 +1,12 @@
 import {config} from '../../wdio.conf'
-import {expect as chaiExpect} from 'chai'
 
 describe('Website', function () {
     const locator = '.logo'
     const locator2 = '.logo'
 
     it.skip('should be alive', function () {
+        this.timeout(120000)
+
         browser.url('/');
 
         $(locator + locator2)
@@ -16,7 +17,8 @@ describe('Website', function () {
         browser.url('/index.php?route=account/register')
         
         expect($('#content')).toBeDisplayed({
-            wait: 10000
+            wait: 10000,
+            message: "Oops expected content to be displayed!"
         })
 
         const content = $('#content')
@@ -46,10 +48,14 @@ describe('Website', function () {
         const submitButton = content.$('input[type="submit"][value="Continue"]')
         submitButton.click()
 
-        expect(content.$('h1')).toHaveText('Your Account Has Been Created!')
+        expect(content.$('h1')).toHaveText('Your Account Has Been Created!', {
+            wait: 10000,
+            interval: 1000,
+            message: "Expected registration to be successful"
+        })
     })
 
-    it.skip('should reload my session with current capabilities', () => {
+    it.skip('should reload my session with current capabilities', function () {
         console.log(browser.sessionId)
         console.time('Session restart took') 
         browser.reloadSession()
@@ -96,8 +102,6 @@ describe('Website', function () {
         const a = $('div').getAttribute('test')
 
         expect(10 > 5).toBe(true)
-
-        chaiExpect(10).to.be.above(15)
 
         browser.execute(function () {
             document.querySelector('div').click()
