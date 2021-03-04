@@ -1,4 +1,5 @@
-// import * as crypto from 'crypto'
+import {config} from '../../wdio.conf'
+import {expect as chaiExpect} from 'chai'
 
 describe('Website', function () {
     const locator = '.logo'
@@ -11,7 +12,7 @@ describe('Website', function () {
         expect($('#logo')).toBeDisplayed()
     })
 
-    it('should allow user to register', function () {
+    it.skip('should allow user to register', function () {
         browser.url('/index.php?route=account/register')
         
         expect($('#content')).toBeDisplayed({
@@ -46,5 +47,62 @@ describe('Website', function () {
         submitButton.click()
 
         expect(content.$('h1')).toHaveText('Your Account Has Been Created!')
+    })
+
+    it.skip('should reload my session with current capabilities', () => {
+        console.log(browser.sessionId)
+        console.time('Session restart took') 
+        browser.reloadSession()
+        console.log(browser.sessionId) 
+        console.timeEnd('Session restart took') 
+    })
+
+    it('how to clear local storage', function () {
+        browser.pause(5000)
+        try {
+            browser.execute(function () {
+                window.localStorage.clear();
+                window.sessionStorage.clear();
+            })
+        } catch(err) {
+            console.error('Failed to clear local and session storage')
+        }
+        // browser.setWindowSize(width, height)
+
+        let windows = browser.getWindowHandles()
+
+        browser.newWindow('test.com');
+        browser.pause(1000)
+
+        windows = browser.getWindowHandles()
+
+        browser.switchToWindow(windows[1])
+        browser.pause(1000)
+
+        browser.switchToWindow(windows[0])
+    })
+
+    
+    it.skip('should be alive', function () {
+        // 'http://ip-6147.proline.net.ua:10082/'
+        // 'http://prefix.proline.net.ua:10082/'
+        const url = config.baseUrl
+        browser.url('/');
+
+        
+        $(locator + locator2)
+        expect($('#logo')).toBeDisplayed()
+
+        const a = $('div').getAttribute('test')
+
+        expect(10 > 5).toBe(true)
+
+        chaiExpect(10).to.be.above(15)
+
+        browser.execute(function () {
+            document.querySelector('div').click()
+        })
+
+        expect($('div span #id').$('a=There is no product that matches the search criteria.')).toBeDisplayed()
     })
 })
