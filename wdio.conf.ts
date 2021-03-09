@@ -19,8 +19,8 @@ export const config: WebdriverIO.Config = {
     // directory is where your package.json resides, so `wdio` will be called from there.
     //
     specs: [
-        './test/specs/**/*.ts'
-        // './test/specs/shared_behaviour/admin.ts'
+        // './test/specs/**/*.spec.ts'
+        './test/specs/checkout.spec.ts'
     ],
     // Patterns to exclude.
     exclude: [
@@ -56,21 +56,21 @@ export const config: WebdriverIO.Config = {
             maxInstances: 5,
             //
             browserName: 'chrome',
-            acceptInsecureCerts: true
+            // acceptInsecureCerts: true
             // If outputDir is provided WebdriverIO can capture driver session logs
             // it is possible to configure which logTypes to include/exclude.
             // excludeDriverLogs: ['*'], // pass '*' to exclude all driver session logs
             // excludeDriverLogs: ['bugreport', 'server'],
         },
-        {
-            maxInstances: 1,
-            browserName: 'chrome',
-            acceptInsecureCerts: true,
-            specs: [
-                'test/test_1',
-                'test/test_1'
-            ],
-        }
+        // {
+        //     maxInstances: 1,
+        //     browserName: 'chrome',
+        //     acceptInsecureCerts: true,
+        //     specs: [
+        //         'test/test_1',
+        //         'test/test_1'
+        //     ],
+        // }
     ],
     //
     // ===================
@@ -217,7 +217,7 @@ export const config: WebdriverIO.Config = {
      * Function to be executed before a test (in Mocha/Jasmine) starts.
      */
     beforeTest: function (test, context) {
-
+        browser.url('/')
     },
     /**
      * Hook that gets executed _before_ a hook within the suite starts (e.g. runs before calling
