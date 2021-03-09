@@ -1,4 +1,4 @@
-export const config: WebdriverIO.Config = {
+export const config = {
     //hostname: '93.126.97.71',
     //path: '/wd/hub', 
     //
