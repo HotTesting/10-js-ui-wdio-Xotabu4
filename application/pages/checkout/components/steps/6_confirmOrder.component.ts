@@ -5,8 +5,9 @@ export class ConfirmOrderComponent {
     }
 
     continue() {
+        browser.pause(500)
         const continueButton = this.root.$('input[type="button"][value="Confirm Order"]#button-confirm')
-        expect(continueButton).toBeVisible({ message: 'Expected Confirm Order button to be visible' })
+        expect(continueButton).toBeClickable({ message: 'Expected Confirm Order button to be visible' })
         continueButton.click()
     }
 }

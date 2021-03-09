@@ -6,13 +6,14 @@ export class PaymentMethodComponent {
 
     acceptTermsAndConditions() {
         const checkbox = $('input[type="checkbox"][name="agree"]')
-        expect(checkbox).toBeVisible({ message: 'Expected accept terms and conditions checkbox to be visible' })
+        expect(checkbox).toBeClickable({ message: 'Expected accept terms and conditions checkbox to be visible' })
         checkbox.click()
     }
 
     continue() {
+        browser.pause(500)
         const continueButton = this.root.$('input[type="button"][value="Continue"]#button-payment-method')
-        expect(continueButton).toBeVisible({ message: 'Expected Continue button to be visible' })
+        expect(continueButton).toBeClickable({ message: 'Expected Continue button to be visible' })
         continueButton.click()
     }
 }

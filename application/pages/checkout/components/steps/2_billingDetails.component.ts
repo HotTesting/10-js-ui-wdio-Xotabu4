@@ -16,6 +16,7 @@ export class BillingDetailsComponent {
         region: string
     }) {
         console.log('[BillingDetailsComponent] Filling biling details step', JSON.stringify(data, null, 2))
+        expect(this.root.$('#input-payment-firstname')).toBeClickable()
         this.root.$('#input-payment-firstname').setValue(data.firstName)
         this.root.$('#input-payment-lastname').setValue(data.lastName)
         this.root.$('#input-payment-email').setValue(data.email)
@@ -28,8 +29,9 @@ export class BillingDetailsComponent {
     }
 
     continue() {
+        browser.pause(500)
         const continueButton = this.root.$('input[type="button"][value="Continue"]#button-guest')
-        expect(continueButton).toBeVisible({ message: 'Expected Continue button to be visible' })
+        expect(continueButton).toBeClickable({ message: 'Expected Continue button to be visible' })
         continueButton.click()
     }
 }

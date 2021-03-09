@@ -1,6 +1,6 @@
 import { ConfirmationPage } from "./pages/checkout/confirmation.page";
 import { CheckoutPage } from "./pages/checkout/index";
-import { HomePage } from "./pages/home.page";
+import { HomePage } from "./pages/home/home.page";
 import { ProductCategoryPage } from "./pages/productCategory.page";
 
 

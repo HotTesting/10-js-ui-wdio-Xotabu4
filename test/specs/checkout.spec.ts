@@ -11,8 +11,8 @@ describe('Item', function () {
         expect(iPodShuffle).toBeDefined()
 
         iPodShuffle.addToCart()
-        
-        app.checkout.open()
+
+        app.productCategory.topLinks.openCheckout();
 
         app.checkout.checkoutOptions.selectGuestCheckout()
         app.checkout.checkoutOptions.continue()
@@ -37,6 +37,8 @@ describe('Item', function () {
 
         app.checkout.confirmOrder.continue()
 
-        expect(app.confirmation.isOpened()).toBeTruthy()
+        browser.waitUntil(() => app.confirmation.isOpened(), {
+            timeoutMsg: "Expected confirmation page to be loaded"
+        })
     })
 })

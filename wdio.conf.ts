@@ -103,7 +103,7 @@ export const config: WebdriverIO.Config = {
     // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
     // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
     // gets prepended directly.
-    baseUrl: 'http://ip-6147.proline.net.ua:10082/',
+    baseUrl: 'http://ip-6147.proline.net.ua:10082',
     //
     // Default timeout for all waitFor* commands.
     waitforTimeout: 10000,
@@ -196,7 +196,7 @@ export const config: WebdriverIO.Config = {
      * @param {Object}         browser      instance of created browser/device session
      */
     before: function (capabilities, specs) {
-
+        browser.setWindowSize(1920, 1080)
     },
     /**
      * Runs before a WebdriverIO command gets executed.

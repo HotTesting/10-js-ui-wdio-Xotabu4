@@ -1,10 +1,11 @@
 import { ProductCardComponent } from "./components/productCard.component"
+import { TopLinks } from "./components/toplinks.component"
 
 
 export class ProductCategoryPage {
+    topLinks: TopLinks = new TopLinks()
+
     open(url: string) {
-        browser.url(url)
-        browser.pause(1000)
         browser.url(url)
     }
 

@@ -9,7 +9,6 @@ export class ProductCardComponent {
     }
 
     addToCart() {
-        browser.pause(3000)
         const addToCartButton = this.root.$('button[onclick*="cart.add"] i.fa-shopping-cart')
         expect(addToCartButton).toBeVisible({ message: 'Expected add to cart button to be visible' })
         addToCartButton.click()
