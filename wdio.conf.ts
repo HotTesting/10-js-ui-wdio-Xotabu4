@@ -1,6 +1,7 @@
-export const config: WebdriverIO.Config = {
-    //hostname: '93.126.97.71',
-    //path: '/wd/hub', 
+export const config = {
+    automationProtocol: 'devtools',
+    // hostname: '93.126.97.71',
+    // path: '/wd/hub', 
     //
     // ====================
     // Runner Configuration
@@ -20,7 +21,9 @@ export const config: WebdriverIO.Config = {
     //
     specs: [
         // './test/specs/**/*.spec.ts'
-        './test/specs/checkout.spec.ts'
+        // './test/specs/checkout.spec.ts'
+        './test/specs/mocks/example.spec.ts'
+        //'test/specs/smoke.spec.ts'
     ],
     // Patterns to exclude.
     exclude: [
@@ -119,7 +122,7 @@ export const config: WebdriverIO.Config = {
     // Services take over a specific job you don't want to take care of. They enhance
     // your test setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the test process.
-    services: ['chromedriver'],
+    // services: ['chromedriver'],
 
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber

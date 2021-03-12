@@ -13,7 +13,7 @@ describe('Website', function () {
         expect($('#logo')).toBeDisplayed()
     })
 
-    it.skip('should allow user to register', function () {
+    it('should allow user to register', function () {
         browser.url('/index.php?route=account/register')
         
         expect($('#content')).toBeDisplayed({
@@ -63,7 +63,7 @@ describe('Website', function () {
         console.timeEnd('Session restart took') 
     })
 
-    it('how to clear local storage', function () {
+    it.skip('how to clear local storage', function () {
         browser.pause(5000)
         try {
             browser.execute(function () {
