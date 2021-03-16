@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "Demonstation project for 10-js-ui-wdio students",
   "scripts": {
-    "test": "wdio wdio.conf.ts"
+    "test": "wdio wdio.conf.ts",
+    "test_ENV": "ADMIN_URL=http://test.com/admin CLIENT_URL=http://test.com/client wdio wdio.conf.ts",
+    "test_CLI": "wdio wdio.conf.ts --adminUrl='http://test.com/admin' --clientUrl='http://test.com/client'"
   },
   "repository": {
     "type": "git",
@@ -16,7 +18,8 @@
   },
   "homepage": "https://github.com/StartITProtractorJS/10-js-ui-wdio-Xotabu4#readme",
   "dependencies": {
-    "@wdio/cli": "^7.0.7"
+    "@wdio/cli": "^7.0.7",
+    "node-fetch": "^2.6.1"
   },
   "devDependencies": {
     "@wdio/local-runner": "^7.0.7",

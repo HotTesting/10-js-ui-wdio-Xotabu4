@@ -22,8 +22,8 @@ export const config = {
     specs: [
         // './test/specs/**/*.spec.ts'
         // './test/specs/checkout.spec.ts'
-        './test/specs/mocks/example.spec.ts'
-        //'test/specs/smoke.spec.ts'
+        //'./test/specs/mocks/example.spec.ts'
+        'test/specs/smoke.spec.ts'
     ],
     // Patterns to exclude.
     exclude: [
@@ -106,7 +106,7 @@ export const config = {
     // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
     // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
     // gets prepended directly.
-    baseUrl: 'http://ip-6147.proline.net.ua:10082',
+    baseUrl: 'http://93.126.97.71:10082',
     //
     // Default timeout for all waitFor* commands.
     waitforTimeout: 10000,
@@ -199,6 +199,13 @@ export const config = {
      * @param {Object}         browser      instance of created browser/device session
      */
     before: function (capabilities, specs) {
+        // const options = program.opts();
+        // // global.config.ADMIN_URL = process.env.ADMIN_URL
+        // // global.config.CLIENT_URL = process.env.CLIENT_URL
+
+        // global.config.ADMIN_URL = options.adminUrl
+        // global.config.CLIENT_URL = options.clientUrl
+
         browser.setWindowSize(1920, 1080)
     },
     /**
