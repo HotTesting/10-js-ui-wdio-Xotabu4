@@ -1,3 +1,5 @@
+import { customCommands } from './application/customCommands/index'
+
 export const config = {
     automationProtocol: 'devtools',
     // hostname: '93.126.97.71',
@@ -23,7 +25,8 @@ export const config = {
         // './test/specs/**/*.spec.ts'
         // './test/specs/checkout.spec.ts'
         //'./test/specs/mocks/example.spec.ts'
-        'test/specs/smoke.spec.ts'
+        // 'test/specs/smoke.spec.ts'
+        'test/specs/executeJavascript/example.spec.ts'
     ],
     // Patterns to exclude.
     exclude: [
@@ -82,7 +85,7 @@ export const config = {
     // Define all options that are relevant for the WebdriverIO instance here
     //
     // Level of logging verbosity: trace | debug | info | warn | error | silent
-    logLevel: 'info',
+    logLevel: 'silent',
     //
     // Set specific log levels per logger
     // loggers:
@@ -199,6 +202,8 @@ export const config = {
      * @param {Object}         browser      instance of created browser/device session
      */
     before: function (capabilities, specs) {
+        customCommands.forEach(registerCommand => registerCommand())
+
         // const options = program.opts();
         // // global.config.ADMIN_URL = process.env.ADMIN_URL
         // // global.config.CLIENT_URL = process.env.CLIENT_URL
