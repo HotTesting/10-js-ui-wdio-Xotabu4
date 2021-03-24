@@ -82,7 +82,7 @@ describe('Execute javascript on page', function () {
         browser.pause(30000)
     })
 
-    it('register user: async script', function () {
+    it.skip('register user: async script', function () {
 
         const email = `test+${Date.now().toString()}@test.com`;
 

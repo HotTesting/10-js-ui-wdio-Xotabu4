@@ -2,6 +2,8 @@ import { customCommands } from './application/customCommands/index'
 
 const configToExport = {
     // automationProtocol: 'devtools',
+    hostname: undefined,
+    path: undefined,
     // hostname: '93.126.97.71',
     // path: '/wd/hub', 
     //
@@ -14,10 +16,7 @@ const configToExport = {
     runner: 'local',
     specs: [
         // './test/specs/**/*.spec.ts'
-        // './test/specs/checkout.spec.ts'
-        //'./test/specs/mocks/example.spec.ts'
-        // 'test/specs/smoke.spec.ts'
-        'test/specs/executeJavascript/example.spec.ts'
+        'test/specs/checkout.spec.ts'
     ],
     // Patterns to exclude.
     exclude: [
@@ -292,6 +291,13 @@ if (process.env.DEBUG == '1') {
     configToExport.mochaOpts.timeout = 9999999
     //configToExport.logLevel = 'trace'
     configToExport.capabilities[0].maxInstances = 1
+}
+
+if (process.env.CI == 'true') {
+    configToExport.logLevel = 'error'
+    configToExport.services = configToExport.services.filter(service => service !== 'chromedriver')
+    configToExport.hostname = '93.126.97.71'
+    configToExport.path = '/wd/hub'
 }
 
 export const config = configToExport

@@ -1,21 +1,19 @@
 import { ApiClient } from '../../application/api/apiClient'
 
 describe('Website', function () {
-    const locator = '.logo'
-    const locator2 = '.logo'
 
-    it.skip('should be alive', function () {
+    it('should be alive', function () {
         this.timeout(120000)
 
         browser.url('/');
 
-        $(locator + locator2)
+        $('.logo')
         expect($('#logo')).toBeDisplayed()
     })
 
     it.skip('should allow user to register', function () {
         browser.url('/index.php?route=account/register')
-        
+
         expect($('#content')).toBeDisplayed({
             wait: 10000,
             message: "Oops expected content to be displayed!"
@@ -38,10 +36,10 @@ describe('Website', function () {
 
         const password = content.$('#input-password')
         password.setValue('123456')
-        
+
         const confirmPassword = content.$('#input-confirm')
         confirmPassword.setValue('123456')
-        
+
         const agreePolicy = content.$('input[type="checkbox"][name="agree"]')
         agreePolicy.click()
 
@@ -57,10 +55,10 @@ describe('Website', function () {
 
     it.skip('should reload my session with current capabilities', function () {
         console.log(browser.sessionId)
-        console.time('Session restart took') 
+        console.time('Session restart took')
         browser.reloadSession()
-        console.log(browser.sessionId) 
-        console.timeEnd('Session restart took') 
+        console.log(browser.sessionId)
+        console.timeEnd('Session restart took')
     })
 
     it.skip('how to clear local storage', function () {
@@ -70,7 +68,7 @@ describe('Website', function () {
                 window.localStorage.clear();
                 window.sessionStorage.clear();
             })
-        } catch(err) {
+        } catch (err) {
             console.error('Failed to clear local and session storage')
         }
         // browser.setWindowSize(width, height)
@@ -88,7 +86,7 @@ describe('Website', function () {
         browser.switchToWindow(windows[0])
     })
 
-    
+
     it.skip('should be alive', function () {
         // 'http://ip-6147.proline.net.ua:10082/'
         // 'http://prefix.proline.net.ua:10082/'
@@ -98,8 +96,7 @@ describe('Website', function () {
         // browser.adminUrl('/')
 
         browser.url('/')
-        
-        $(locator + locator2)
+
         expect($('#logo')).toBeDisplayed()
 
         const a = $('div').getAttribute('test')
@@ -129,10 +126,4 @@ describe('Website', function () {
         browser.pause(10000)
     })
 
-    it('throw error', function () {
-        if($('div').waitForDisplayed() == true) {
-            console.log('no exception, returned true')    
-        }
-        console.log('no exception, returned non-true')
-    })
 })

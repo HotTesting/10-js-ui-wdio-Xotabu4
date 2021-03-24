@@ -2,7 +2,7 @@
 describe('Mock example', function () {
 
 
-    it('1', function () {
+    it.skip('1', function () {
         const mock = browser.mock('https://todobackend-challenge.herokuapp.com/', {
             method: 'get'
         })
