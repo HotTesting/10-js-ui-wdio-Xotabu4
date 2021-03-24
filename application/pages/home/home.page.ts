@@ -7,6 +7,7 @@ export class HomePage {
 
     @step('open all for category')
     openAllForCategory(categoryName: string) {
+        throw new Error('test')
         $(`a=${categoryName}`).click()
 
         const openedSeeAllLink = $('.dropdown.open .see-all')

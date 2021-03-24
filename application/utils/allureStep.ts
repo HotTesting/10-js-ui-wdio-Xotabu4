@@ -15,6 +15,11 @@ export function step(msg: string) {
                 allureReporter.endStep('passed');
                 return result;
             } catch (e) {
+                try {
+                    browser.takeScreenshot();
+                } catch {
+                    console.log(`ERROR: Cannot take screenshot for failed step ${msg} `)
+                }
                 if (e.toString().includes('AssertionError')) {
                     allureReporter.endStep('failed');
                 } else {
