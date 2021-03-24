@@ -1,12 +1,15 @@
 {
     "compilerOptions": {
-        // "target": "ES6",
+        "target": "ES6",
         "types": [
             "node",
             "webdriverio/sync",
             "@wdio/mocha-framework",
             "expect-webdriverio"
         ],
-        "outDir": "./dist"
+        "outDir": "./dist",
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "module": "commonjs"
     }
 }
