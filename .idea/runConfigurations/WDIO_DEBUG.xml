@@ -1,0 +1,8 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="WDIO_DEBUG" type="NodeJSConfigurationType" application-parameters="./wdio.conf.ts --spec='./test/specs/smoke.spec.ts'" path-to-js-file="node_modules/@wdio/cli/bin/wdio.js" working-dir="$PROJECT_DIR$">
+    <envs>
+      <env name="DEBUG" value="1" />
+    </envs>
+    <method v="2" />
+  </configuration>
+</component>

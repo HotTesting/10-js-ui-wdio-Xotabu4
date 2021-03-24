@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "Demonstation project for 10-js-ui-wdio students",
   "scripts": {
-    "test": "wdio wdio.conf.ts",
+    "test": "wdio ./wdio.conf.ts",
+    "repl": "wdio repl chrome",
     "test_ENV": "ADMIN_URL=http://test.com/admin CLIENT_URL=http://test.com/client wdio wdio.conf.ts",
     "test_CLI": "wdio wdio.conf.ts --adminUrl='http://test.com/admin' --clientUrl='http://test.com/client'"
   },

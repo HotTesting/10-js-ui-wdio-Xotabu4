@@ -6,6 +6,7 @@
             "webdriverio/sync",
             "@wdio/mocha-framework",
             "expect-webdriverio"
-        ]
+        ],
+        "outDir": "./dist"
     }
 }

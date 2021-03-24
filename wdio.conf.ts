@@ -1,7 +1,7 @@
 import { customCommands } from './application/customCommands/index'
 
-export const config = {
-    automationProtocol: 'devtools',
+const configToExport = {
+    // automationProtocol: 'devtools',
     // hostname: '93.126.97.71',
     // path: '/wd/hub', 
     //
@@ -12,15 +12,6 @@ export const config = {
     // WebdriverIO allows it to run your tests in arbitrary locations (e.g. locally or
     // on a remote machine).
     runner: 'local',
-    //
-    // ==================
-    // Specify Test Files
-    // ==================
-    // Define which test specs should run. The pattern is relative to the directory
-    // from which `wdio` was called. Notice that, if you are calling `wdio` from an
-    // NPM script (see https://docs.npmjs.com/cli/run-script) then the current working
-    // directory is where your package.json resides, so `wdio` will be called from there.
-    //
     specs: [
         // './test/specs/**/*.spec.ts'
         // './test/specs/checkout.spec.ts'
@@ -48,7 +39,7 @@ export const config = {
     // and 30 processes will get spawned. The property handles how many capabilities
     // from the same test should run tests.
     //
-    maxInstances: 10,
+    // maxInstances: 10,
     //
     // If you have trouble getting all important capabilities together, check out the
     // Sauce Labs platform configurator - a great tool to configure your capabilities:
@@ -60,7 +51,6 @@ export const config = {
             // grid with only 5 firefox instances available you can make sure that not more than
             // 5 instances get started at a time.
             maxInstances: 5,
-            //
             browserName: 'chrome',
             // acceptInsecureCerts: true
             // If outputDir is provided WebdriverIO can capture driver session logs
@@ -68,15 +58,6 @@ export const config = {
             // excludeDriverLogs: ['*'], // pass '*' to exclude all driver session logs
             // excludeDriverLogs: ['bugreport', 'server'],
         },
-        // {
-        //     maxInstances: 1,
-        //     browserName: 'chrome',
-        //     acceptInsecureCerts: true,
-        //     specs: [
-        //         'test/test_1',
-        //         'test/test_1'
-        //     ],
-        // }
     ],
     //
     // ===================
@@ -125,7 +106,7 @@ export const config = {
     // Services take over a specific job you don't want to take care of. They enhance
     // your test setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the test process.
-    // services: ['chromedriver'],
+    services: ['chromedriver'],
 
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber
@@ -305,3 +286,12 @@ export const config = {
 
     }
 }
+
+if (process.env.DEBUG == '1') {
+    console.log('==== RUNNING IN DEBUG MODE ====')
+    configToExport.mochaOpts.timeout = 9999999
+    //configToExport.logLevel = 'trace'
+    configToExport.capabilities[0].maxInstances = 1
+}
+
+export const config = configToExport

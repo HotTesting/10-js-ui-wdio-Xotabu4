@@ -63,30 +63,30 @@ describe('Website', function () {
         console.timeEnd('Session restart took') 
     })
 
-    // it.skip('how to clear local storage', function () {
-    //     browser.pause(5000)
-    //     try {
-    //         browser.execute(function () {
-    //             window.localStorage.clear();
-    //             window.sessionStorage.clear();
-    //         })
-    //     } catch(err) {
-    //         console.error('Failed to clear local and session storage')
-    //     }
-    //     // browser.setWindowSize(width, height)
+    it.skip('how to clear local storage', function () {
+        browser.pause(5000)
+        try {
+            browser.execute(function () {
+                window.localStorage.clear();
+                window.sessionStorage.clear();
+            })
+        } catch(err) {
+            console.error('Failed to clear local and session storage')
+        }
+        // browser.setWindowSize(width, height)
 
-    //     let windows = browser.getWindowHandles()
+        let windows = browser.getWindowHandles()
 
-    //     browser.newWindow('test.com');
-    //     browser.pause(1000)
+        browser.newWindow('test.com');
+        browser.pause(1000)
 
-    //     windows = browser.getWindowHandles()
+        windows = browser.getWindowHandles()
 
-    //     browser.switchToWindow(windows[1])
-    //     browser.pause(1000)
+        browser.switchToWindow(windows[1])
+        browser.pause(1000)
 
-    //     browser.switchToWindow(windows[0])
-    // })
+        browser.switchToWindow(windows[0])
+    })
 
     
     it.skip('should be alive', function () {
@@ -113,7 +113,7 @@ describe('Website', function () {
         expect($('div span #id').$('a=There is no product that matches the search criteria.')).toBeDisplayed()
     })
 
-    it('api register', function () {
+    it.skip('api register', function () {
 
         browser.url('/')
 
@@ -127,5 +127,12 @@ describe('Website', function () {
         $('input[value="Login"]').click()
 
         browser.pause(10000)
+    })
+
+    it('throw error', function () {
+        if($('div').waitForDisplayed() == true) {
+            console.log('no exception, returned true')    
+        }
+        console.log('no exception, returned non-true')
     })
 })
