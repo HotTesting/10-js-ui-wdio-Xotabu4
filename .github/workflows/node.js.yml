@@ -11,23 +11,23 @@ on:
 #     branches: [ main ]
 
 jobs:
-  run-api-tests:
+  run-ui-tests:
     runs-on: ubuntu-latest
     
     steps:
     - uses: actions/checkout@v2
-    - name: Switch to Node.js 12.16.3
+    - name: Switch to Node.js 12.21.0
       uses: actions/setup-node@v1
       with:
-        node-version: 12.16.3
+        node-version: 12.21.0
     - name: Run tests
       run: npm cit  
-    - name: Compress results
-      uses: montudor/action-zip@v0.1.0
-      if: ${{ always() }}
-      with:
-        args: zip -qq -r ./allure-results.zip ./allure-results
-    - name: Send Results and Generate Report
-      if: ${{ always() }}
-      run: node --unhandled-rejections=strict ./scripts/upload-generate-report.js
+    # - name: Compress results
+    #   uses: montudor/action-zip@v0.1.0
+    #   if: ${{ always() }}
+    #   with:
+    #     args: zip -qq -r ./allure-results.zip ./allure-results
+    # - name: Send Results and Generate Report
+    #   if: ${{ always() }}
+    #   run: node --unhandled-rejections=strict ./scripts/upload-generate-report.js
     

@@ -56,6 +56,12 @@ const configToExport = {
             // it is possible to configure which logTypes to include/exclude.
             // excludeDriverLogs: ['*'], // pass '*' to exclude all driver session logs
             // excludeDriverLogs: ['bugreport', 'server'],
+
+            // "goog:chromeOptions": {
+            //     "args": [
+            //         "--headless"
+            //     ]
+            // }
         },
     ],
     //
@@ -65,7 +71,7 @@ const configToExport = {
     // Define all options that are relevant for the WebdriverIO instance here
     //
     // Level of logging verbosity: trace | debug | info | warn | error | silent
-    logLevel: 'silent',
+    logLevel: 'info',
     //
     // Set specific log levels per logger
     // loggers:
