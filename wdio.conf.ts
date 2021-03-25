@@ -62,6 +62,10 @@ const configToExport = {
             //         "--headless"
             //     ]
             // }
+
+            "selenoid:options": {
+                enableVNC: true
+            }
         },
     ],
     //
@@ -309,7 +313,7 @@ if (process.env.DEBUG == '1') {
 if (process.env.CI == 'true') {
     configToExport.logLevel = 'error'
     configToExport.services = configToExport.services.filter(service => service !== 'chromedriver')
-    configToExport.hostname = 'localhost' // '93.126.97.71'
+    configToExport.hostname = '93.126.97.71'
     configToExport.path = '/wd/hub'
 }
 
