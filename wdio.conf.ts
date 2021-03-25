@@ -15,8 +15,8 @@ const configToExport = {
     // on a remote machine).
     runner: 'local',
     specs: [
-        // './test/specs/**/*.spec.ts'
-        'test/specs/checkout.spec.ts'
+        './test/specs/**/*.spec.ts'
+        //'test/specs/checkout.spec.ts'
     ],
     // Patterns to exclude.
     exclude: [
@@ -313,7 +313,7 @@ if (process.env.DEBUG == '1') {
 if (process.env.CI == 'true') {
     configToExport.logLevel = 'error'
     configToExport.services = configToExport.services.filter(service => service !== 'chromedriver')
-    configToExport.hostname = '46.101.165.5'
+    configToExport.hostname = '93.126.97.71'
     configToExport.path = '/wd/hub'
 }
 
