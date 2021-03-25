@@ -306,11 +306,11 @@ if (process.env.DEBUG == '1') {
     configToExport.capabilities[0].maxInstances = 1
 }
 
-if (process.env.CI == 'true') {
-    configToExport.logLevel = 'error'
-    configToExport.services = configToExport.services.filter(service => service !== 'chromedriver')
-    configToExport.hostname = '93.126.97.71'
-    configToExport.path = '/wd/hub'
-}
+// if (process.env.CI == 'true') {
+//     configToExport.logLevel = 'error'
+//     configToExport.services = configToExport.services.filter(service => service !== 'chromedriver')
+//     configToExport.hostname = '93.126.97.71'
+//     configToExport.path = '/wd/hub'
+// }
 
 export const config = configToExport
