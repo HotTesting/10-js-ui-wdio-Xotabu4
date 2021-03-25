@@ -313,7 +313,7 @@ if (process.env.DEBUG == '1') {
 if (process.env.CI == 'true') {
     configToExport.logLevel = 'error'
     configToExport.services = configToExport.services.filter(service => service !== 'chromedriver')
-    configToExport.hostname = '93.126.97.71'
+    configToExport.hostname = '46.101.165.5'
     configToExport.path = '/wd/hub'
 }
 
