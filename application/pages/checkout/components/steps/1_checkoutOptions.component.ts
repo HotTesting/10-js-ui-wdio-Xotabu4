@@ -1,3 +1,4 @@
+import { step } from "../../../../utils/allureStep"
 
 export class CheckoutOptionsComponent {
     private get root(): WebdriverIO.Element {
@@ -10,6 +11,7 @@ export class CheckoutOptionsComponent {
         guestCheckoutRadio.click()
     }
 
+    @step('continue from checkout options panel')
     continue() {
         browser.pause(500)
         const continueButton = this.root.$('input[type="button"][value="Continue"]#button-account')

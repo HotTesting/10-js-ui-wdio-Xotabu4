@@ -14,9 +14,11 @@ describe('Item', function () {
 
         app.productCategory.topLinks.openCheckout();
 
+        
         app.checkout.checkoutOptions.selectGuestCheckout()
         app.checkout.checkoutOptions.continue()
 
+        throw new Error('ooops!')
         app.checkout.billingDetails.fillBillingDetails({
             firstName: 'test',
             lastName: 'test',
