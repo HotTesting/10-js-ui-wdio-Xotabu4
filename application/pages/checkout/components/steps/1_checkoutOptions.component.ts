@@ -13,6 +13,7 @@ export class CheckoutOptionsComponent {
 
     @step('continue from checkout options panel')
     continue() {
+        throw new Error('ooops!')
         browser.pause(500)
         const continueButton = this.root.$('input[type="button"][value="Continue"]#button-account')
         expect(continueButton).toBeClickable({ message: 'Expected Continue button to be visible' })
