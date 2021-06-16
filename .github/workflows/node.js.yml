@@ -17,6 +17,9 @@ jobs:
     steps:
     - name: Start selenoid
       uses: Xotabu4/selenoid-github-action@v2
+      with:
+        selenoid-start-arguments: |
+          --browsers 'chrome:80.0'
     - uses: actions/checkout@v2
     - name: Switch to Node.js 12.21.0
       uses: actions/setup-node@v1
